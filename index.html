@@ -126,11 +126,10 @@
   </div>
 
   <!-- Category Buttons -->
-  <!-- <div class="categories">
+  <div class="categories">
     <div class="category-card level">Animation_01</div>
-    <div class="category-card plug">Animation_02</div>
-    <div class="category-card ball">Animation_03</div>
-  </div> -->
+    
+  </div>
 
   <!-- Three.js Import Map -->
   <script type="importmap">
@@ -221,6 +220,7 @@
 
           model.position.y = -0.1;
           model.scale.set(10, 10, 10);
+          model.rotation.set(0, 0.45, 0);
           scene.add(model);
 
           mixer = new THREE.AnimationMixer(model);
@@ -228,7 +228,7 @@
             const action = mixer.clipAction(clip);
             animationActions.push(action);
           });
-          playAnimation(0);
+          
           animate();
         });
       });
