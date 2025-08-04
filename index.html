@@ -216,6 +216,9 @@
   <nav>
     <div class="logo">Glass Level Gauge</div>
   </nav>
+<div id="loading" style="color:white; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%)">
+  Loading model...
+</div>
 
   <!-- Product Info Section -->
   <div class="product-info">
@@ -314,6 +317,7 @@
 
         const loader = new GLTFLoader();
         loader.load(modelPath, (gltf) => {
+              document.getElementById('loading').style.display = 'none';
           model = gltf.scene;
           model.traverse(child => {
             if (child.isMesh) {
