@@ -191,16 +191,51 @@
 
 
 .product-info {
-  display: none; /* Hidden by default */
-  background-color: #fff;
+  position: absolute;
+    top: 97px;
+    left: 16px;
+  right: 20px;
+  background-color: rgba(255, 255, 255, 0.304);
   color: #000;
   padding: 20px;
   border-radius: 12px;
-  max-width: 90%;
-  margin: 70px auto 0;
+  max-width: 500px;
+ 
   font-size: clamp(14px, 2vw, 16px);
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  display: none; /* hidden by default, toggled by JS */
+  animation: slideFadeIn 0.6s ease-out;
 }
+
+.product-info h1 {
+      margin-top: 0px;
+  font-size: clamp(20px, 3vw, 26px);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  color: #00bfff;
+}
+
+.product-info ul {
+  padding-left: 20px;
+  margin: 0;
+}
+
+.product-info li {
+  margin-bottom: 8px;
+  font-size: clamp(14px, 2vw, 15px);
+  line-height: 1.5;
+}
+
+/* Optional: Responsive tweak for very small screens */
+@media (max-width: 500px) {
+  .product-info {
+    padding: 5px;
+    font-size: 14px;
+    top: 94px;
+  }
+}
+
 
 @media (min-width: 501px) {
   .category-card {
@@ -308,12 +343,13 @@
 
       // Load Environment & Model
       const hdrPath = 'textures/equirectangular/royal_esplanade_1k.hdr';
-      const modelPath = 'models/Glass Level Gauge.glb';
+      const modelPath = 'models/Glass Level Gauge_updated.glb';
 
       new RGBELoader().load(hdrPath, (texture) => {
         texture.mapping = THREE.EquirectangularReflectionMapping;
         scene.environment = texture;
-        scene.background = new THREE.Color(0x0b1629);
+        scene.background = new THREE.Color(0xD9D9D9); // standard gray
+
 
         const loader = new GLTFLoader();
         loader.load(modelPath, (gltf) => {
