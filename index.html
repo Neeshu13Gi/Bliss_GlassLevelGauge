@@ -13,7 +13,7 @@
     height: 100%;
     overflow: hidden;
     font-family: 'Segoe UI', sans-serif;
-    background-color: #051430;
+    background-color: #333;
   }
 
   canvas {
@@ -320,7 +320,7 @@
       // Lighting & Environment
       const backgroundSphere = new THREE.Mesh(
         new THREE.SphereGeometry(50, 64, 64),
-        new THREE.MeshStandardMaterial({ color: 0x101f35, roughness: 0.5, side: THREE.BackSide })
+        new THREE.MeshStandardMaterial({ color: 0x333333, roughness: 0.5, side: THREE.BackSide })
       );
       scene.add(backgroundSphere);
 
